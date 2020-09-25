@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <div>首页首页首页</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script lang='ts'>
+import { defineComponent, reactive, toRefs, SetupContext } from "vue";
 
+interface Data {
+  name: string;
+}
 export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld
+  name: "",
+  props: {},
+  components: {},
+  setup(props, ctx: SetupContext) {
+    const data: Data = reactive<Data>({ name: "" });
+    return {
+      ...toRefs(data)
+    };
   }
 });
 </script>
+
+<style scoped lang='scss'>
+</style>

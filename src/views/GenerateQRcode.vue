@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view />
-  </div>
+  <div></div>
 </template>
 
 <script lang='ts'>
@@ -23,15 +21,4 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-* {
-  margin: 0;
-  padding: 0;
-}
-html,
-body {
-  overflow-x: hidden;
-  height: 100%;
-  width: 100%;
-}
-@import "../src/style/base.css";
 </style>

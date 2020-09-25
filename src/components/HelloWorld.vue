@@ -1,140 +1,87 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-          target="_blank"
-          rel="noopener"
-          >typescript</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+  <div class="c-pointer">
+    <div v-for="(item, index) in hooks" :key="index">
+      <div
+        class="flex navs"
+        style="padding:10px 0;"
+        @click="$router.push(item.path)"
+        :class="item.path === $route.path ? 'color' : ''"
+      >
+        <div style="padding:0 10px 0 20px;">
+          <component :is="item.icon"></component>
+        </div>
+        <div>{{ item.name }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
+<script lang='ts'>
+import { defineComponent, reactive, toRefs, SetupContext } from "vue";
+interface Hooks {
+  [key: string]: string;
+}
+interface Data {
+  name: string;
+  hooks: Hooks[];
+}
 export default defineComponent({
   name: "HelloWorld",
-  props: {
-    msg: String
+  props: {},
+  components: {},
+  setup(props, ctx: SetupContext) {
+    const data: Data = reactive<Data>({
+      name: "",
+      hooks: [
+        { name: "首页", path: "/home", icon: "HomeOutlined" },
+        {
+          name: "常用hooks",
+          path: "/Commonly",
+          icon: "DeploymentUnitOutlined"
+        },
+        { name: "图片预览", path: "/Picturepreview", icon: "ZoomInOutlined" },
+        { name: "趋势", path: "/trend", icon: "BarChartOutlined" },
+        { name: "底部工具栏", path: "/bottomtoolbars", icon: "ToolOutlined" },
+        { name: "通知图标", path: "/Notificationicon", icon: "BellOutlined" },
+        { name: "内嵌网页", path: "/Embeddedwebpage", icon: "FundOutlined" },
+        { name: "验证码按钮", path: "/Captchabutton", icon: "MessageOutlined" },
+        {
+          name: "进度条拓展",
+          path: "/Progressbarexpansion",
+          icon: "LinkOutlined"
+        },
+        {
+          name: "生成二维码",
+          path: "/GenerateQRcode",
+          icon: "QrcodeOutlined"
+        },
+        {
+          name: "复制文本",
+          path: "/Copytext",
+          icon: "CopyrightCircleOutlined"
+        },
+        {
+          name: "生成水印",
+          path: "/Generatewatermark",
+          icon: "BorderTopOutlined"
+        },
+        { name: "可编辑文字", path: "/Editabletext", icon: "EditOutlined" }
+      ]
+    });
+    return {
+      ...toRefs(data)
+    };
   }
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+<style scoped lang='scss'>
+.color {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border-right: 3px solid #1890ff;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.navs:hover {
+  color: #1890ff;
 }
 </style>

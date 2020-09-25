@@ -1,0 +1,121 @@
+/* 弹性盒子 */
+
+.flex {
+    display: flex;
+}
+
+
+/* 弹性盒子居中 */
+
+.j-center {
+    justify-content: center;
+}
+
+
+/* 弹性盒子自动换行 */
+
+.f-wrap {
+    flex-wrap: wrap;
+}
+
+
+/* 等间距比 */
+
+.j-between {
+    justify-content: space-between;
+}
+
+
+/* 左右等比居中 */
+
+.j-around {
+    justify-content: space-around;
+}
+
+.j-start {
+    justify-content: flex-start;
+}
+
+
+/* 纵向居中 */
+
+.a-center {
+    align-items: center;
+}
+
+
+/* 背景居中 */
+
+.b-p-center {
+    background-position: center;
+}
+
+
+/* 手指鼠标 */
+
+.c-pointer {
+    cursor: pointer;
+}
+
+
+/* 箭头鼠标 */
+
+.c-default {
+    cursor: default;
+}
+
+
+/* 边框 */
+
+.border {
+    border: 1px solid #ccc;
+}
+
+
+/* 绝对定位 */
+
+.position-r {
+    position: relative;
+}
+
+
+/* 相对定位 */
+
+.position-a {
+    position: absolute;
+}
+
+
+/* 固定定位 */
+
+.position-f {
+    position: fixed;
+}
+
+
+/* 背景颜色白色 */
+
+.bj-f {
+    background-color: #fff;
+}
+
+
+/* 背景颜色黑色 */
+
+.bj-b {
+    background-color: #000;
+}
+
+
+/* 字体居中 */
+
+.t-center {
+    text-align: center;
+}
+
+
+/* 圆形 */
+
+.br {
+    border-radius: 50%;
+}

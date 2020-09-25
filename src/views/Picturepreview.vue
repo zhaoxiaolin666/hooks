@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view />
+    图片预览
   </div>
 </template>
 
@@ -23,15 +23,4 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-* {
-  margin: 0;
-  padding: 0;
-}
-html,
-body {
-  overflow-x: hidden;
-  height: 100%;
-  width: 100%;
-}
-@import "../src/style/base.css";
 </style>
