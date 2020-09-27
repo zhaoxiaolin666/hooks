@@ -1,9 +1,9 @@
 <template>
-  <div class="c-pointer">
+  <div style="cursor: pointer;">
     <div v-for="(item, index) in hooks" :key="index">
       <div
-        class="flex navs"
-        style="padding:10px 0;"
+        class="navs"
+        style="padding:10px 0;display: flex;"
         @click="$router.push(item.path)"
         :class="item.path === $route.path ? 'color' : ''"
       >

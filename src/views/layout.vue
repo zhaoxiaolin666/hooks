@@ -1,10 +1,10 @@
 <template>
-  <div class="flex j-between">
-    <div style="width:12vw;height:100vh;">
+  <div class="flex j-between" style="width:100vw;height:100vh;">
+    <div style="width:15%;height:100%;">
       <hello-world></hello-world>
     </div>
-    <div style="width:88vw;height:100vh;background:#f9f9f9;">
-      <div style="margin:20px 0 0 15px;background:#fff;width:100%;height:100%;">
+    <div style="width:85%;height:100%;background:#f9f9f9;">
+      <div style="background:#fff;width:100%;height:100%;">
         <router-view></router-view>
       </div>
     </div>

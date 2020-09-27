@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div style="margin:30px 0 0 20px;" class="hooks">
+    <div class="hooks">
+      <div style="font-size:24px;">常用hooks</div>
       <!-- 当前时间 -->
       <div style="font-size:24px;">当前时间</div>
       <div>{{ date }}</div>
@@ -39,7 +40,6 @@
       <!-- 本地存储 -->
       <div style="font-size:24px;">本地存储</div>
       <div class="flex bottom">
-        <div>{{ getsss }}</div>
         <div>
           <a-button @click="setData">储存LocalStorage</a-button>
         </div>
@@ -49,6 +49,7 @@
         <div>
           <a-button @click="clearData">清除LocalStorage</a-button>
         </div>
+        <div>{{ getsss }}</div>
       </div>
     </div>
   </div>
@@ -87,8 +88,8 @@ export default defineComponent({
       current: 1,
       currentmin: 1,
       currentmax: 10,
-      delay: 1000,
-      ok: 1
+      delay: 2000,
+      ok: 2
     });
     const { x, y } = useMouse();
     const { date } = useDate();
@@ -106,8 +107,7 @@ export default defineComponent({
     } = useCounter({
       current: data.current,
       min: data.currentmin,
-      max: data.currentmax,
-      delay: data.delay
+      max: data.currentmax
     });
     //加
     const increase = () => {
@@ -131,18 +131,18 @@ export default defineComponent({
     };
     //延迟减
     const Delayminus = () => {
-      delayDec();
+      delayDec(data.delay);
     };
     //按数量加
     const Addbyquantity = () => {
-      setInc(data.ok);
+      setInc();
     };
     //按数量减
     const Decreasebyquantity = () => {
       setDec(data.ok);
     };
     const setData = (): void => {
-      setMessage("keys", data.names);
+      setMessage("keys", data.name);
     };
     //取
     const getData = (): void => {

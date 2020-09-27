@@ -4,12 +4,10 @@ export const useCounter = ({
   current,
   min,
   max,
-  delay,
 }: {
   current?: number;
   min?: number;
   max?: number;
-  delay?: number;
 }) => {
   if (current! < min!) {
     current = min;
@@ -45,24 +43,44 @@ export const useCounter = ({
     count.value = current!;
   };
   //延迟加
-  const delayInc = () => {
-    setTimeout(() => {
-      count.value++;
-    }, delay);
+  const delayInc = (delay?: number) => {
+    if (delay) {
+      setTimeout(() => {
+        count.value++;
+      }, delay);
+    } else {
+      setTimeout(() => {
+        count.value++;
+      }, 1000);
+    }
   };
   //延迟减
-  const delayDec = () => {
-    setTimeout(() => {
-      count.value--;
-    }, delay);
+  const delayDec = (delay?: number) => {
+    if (delay) {
+      setTimeout(() => {
+        count.value--;
+      }, delay);
+    } else {
+      setTimeout(() => {
+        count.value--;
+      }, 1000);
+    }
   };
   //按数量加
-  const setInc = (step: number) => {
-    if (count.value < max!) count.value += step;
+  const setInc = (step?: number) => {
+    if (step) {
+      if (count.value < max!) count.value += step;
+    } else {
+      if (count.value < max!) count.value += 1;
+    }
   };
   //按数量减
-  const setDec = (step: number) => {
-    if (count.value < min!) count.value -= step;
+  const setDec = (step?: number) => {
+    if (step) {
+      if (count.value > min!) count.value -= step;
+    } else {
+      if (count.value > min!) count.value -= 1;
+    }
   };
   return { count, inc, dec, set, reset, delayInc, delayDec, setInc, setDec };
 };

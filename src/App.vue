@@ -30,8 +30,8 @@ export default defineComponent({
 html,
 body {
   overflow-x: hidden;
-  height: 100%;
-  width: 100%;
+  height: 100vw;
+  width: 100vh;
 }
 @import "../src/style/base.css";
 </style>
