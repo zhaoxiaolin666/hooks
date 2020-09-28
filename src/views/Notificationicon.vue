@@ -16,6 +16,9 @@
 import { defineComponent, reactive, toRefs, SetupContext } from "vue";
 interface contentItem {
   count: number;
+  msg?: string;
+  eject?: boolean;
+  bottom?: boolean;
 }
 interface Data {
   name: string;
@@ -33,8 +36,8 @@ export default defineComponent({
       name: "",
       content1: { count: 5 },
       content2: { count: 155 },
-      content3: { count: 5 },
-      content4: { count: 155 }
+      content3: { count: 5, msg: "你好,世界!", eject: true },
+      content4: { count: 155, eject: true, bottom: true }
     });
     return {
       ...toRefs(data)

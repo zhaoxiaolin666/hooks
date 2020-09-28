@@ -29,7 +29,9 @@
         :percentage1="percentage1"
         :percentage2="percentage2"
         :colorflag="colorflag2"
-      ></use-trend>
+      >
+        <template v-slot:action></template>
+      </use-trend>
     </div>
   </div>
 </template>

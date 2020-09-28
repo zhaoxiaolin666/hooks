@@ -5,6 +5,8 @@ import VerificationCode from "@/components/VerificationCode.vue";
 import Bottomtip from "@/components/Bottomtip.vue";
 import webpage from "@/components/webpage.vue";
 import noticeicon from "@/components/noticeicon.vue";
+import wartemark from "@/components/wartemark.vue";
+import preview from "@/components/preview.vue";
 interface Globalcomponent {
   install: (app: App) => void;
 }
@@ -15,6 +17,8 @@ componentsArr.push(VerificationCode);
 componentsArr.push(Bottomtip);
 componentsArr.push(webpage);
 componentsArr.push(noticeicon);
+componentsArr.push(wartemark);
+componentsArr.push(preview);
 
 const aiComponents: Globalcomponent = {
   install(app) {

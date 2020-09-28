@@ -4,7 +4,7 @@
       <hello-world></hello-world>
     </div>
     <div style="width:85%;height:100%;background:#f9f9f9;">
-      <div style="background:#fff;width:100%;height:100%;">
+      <div style="background:#fff;width:100%;height:100%;overflow:auto;">
         <router-view></router-view>
       </div>
     </div>

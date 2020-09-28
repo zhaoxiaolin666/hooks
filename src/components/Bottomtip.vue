@@ -3,7 +3,7 @@
     style="width:100%;height:80px; bottom:0;left:0;position:fixed;border:1px solid #eee;"
   >
     <div
-      style="height:100px;display: flex;justify-content: space-between;align-items: center;"
+      style="height:100px;display:flex;justify-content:space-between;align-items:center;"
     >
       <div>{{ content }}</div>
       <div>

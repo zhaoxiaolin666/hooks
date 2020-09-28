@@ -4,16 +4,19 @@
       <div style="display:flex;">
         <div>{{ Trendcontentone }}</div>
         <div>
-          <CaretUpOutlined :class="colorflag ? 'red' : 'green'" />
+          <div :class="colorflag ? 'red1' : 'red2'" class="margin1"></div>
         </div>
         <div>{{ percentage1 }}</div>
       </div>
       <div style="margin-left:50px;display:flex;">
         <div>{{ Trendcontenttwo }}</div>
         <div>
-          <CaretDownOutlined :class="colorflag ? 'green' : 'red'" />
+          <div :class="colorflag ? 'green1' : 'green2'" class="margin2"></div>
         </div>
         <div>{{ percentage2 }}</div>
+      </div>
+      <div>
+        <slot name="action"></slot>
       </div>
     </div>
   </div>
@@ -59,10 +62,28 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-.red {
-  color: red;
+.red1 {
+  border-bottom: 20px solid red;
 }
-.green {
-  color: green;
+.green1 {
+  border-top: 20px solid green;
+}
+.red2 {
+  border-top: 20px solid green;
+}
+.green2 {
+  border-bottom: 20px solid red;
+}
+.margin1 {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.margin2 {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 }
 </style>
