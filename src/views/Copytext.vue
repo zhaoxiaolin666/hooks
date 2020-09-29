@@ -1,19 +1,8 @@
 <template>
   <div>
-    <!-- <div class="flex" >
-      <div id="text">
-        <input
-          v-model="value"
-          placeholder="输入文字点击复制"
-          style="width:500px;height:30px;border:1px solid skyblue;outline:none;"
-        />
-      </div>
-      <div style="margin-left:15px;">
-        <button @click="copytext">复制</button>
-      </div>
-    </div> -->
-    <input id="demoInput" value="hello world" />
-    <button id="btn" @click="copytext">点我复制</button>
+    <p id="text">复制文字</p>
+    <input id="input" value="这是幕后黑手" />
+    <button @click="copyText">copy</button>
   </div>
 </template>
 
@@ -29,19 +18,16 @@ export default defineComponent({
   components: {},
   setup(props, ctx: SetupContext) {
     const data: Data = reactive<Data>({ name: "", value: "" });
-    const copytext = (): void => {
-      let btn = document.querySelector("#btn")!;
-      btn.addEventListener("click", () => {
-        // document.getElementById("demoInput")!.select();
-        if (document.execCommand("copy")) {
-          document.execCommand("copy");
-          console.log("复制成功");
-        }
-      });
+    const copyText = (): void => {
+      var text = document.getElementById("text")!.innerText! as any; //复制文本
+      var input = document.getElementById("input")! as any; //承载复制内容
+      input.value = text; // 修改文本框的内容
+      input.select(); // 选中文本
+      document.execCommand("copy"); // 执行浏览器复制命令
     };
     return {
       ...toRefs(data),
-      copytext
+      copyText
     };
   }
 });

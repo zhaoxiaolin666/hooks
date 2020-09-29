@@ -1,15 +1,10 @@
 <template>
-  <div id="body"></div>
+  <div></div>
 </template>
 
 <script lang='ts'>
-import {
-  defineComponent,
-  reactive,
-  toRefs,
-  SetupContext,
-  onMounted
-} from "vue";
+import { defineComponent, reactive, toRefs, SetupContext } from "vue";
+
 interface Data {
   name: string;
 }
