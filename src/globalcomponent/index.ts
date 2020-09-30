@@ -7,6 +7,9 @@ import webpage from "@/components/webpage.vue";
 import noticeicon from "@/components/noticeicon.vue";
 import wartemark from "@/components/wartemark.vue";
 import preview from "@/components/preview.vue";
+import Editable from "@/components/Editable.vue";
+import progressbar from "@/components/progressbar.vue";
+
 interface Globalcomponent {
   install: (app: App) => void;
 }
@@ -19,6 +22,8 @@ componentsArr.push(webpage);
 componentsArr.push(noticeicon);
 componentsArr.push(wartemark);
 componentsArr.push(preview);
+componentsArr.push(Editable);
+componentsArr.push(progressbar);
 
 const aiComponents: Globalcomponent = {
   install(app) {

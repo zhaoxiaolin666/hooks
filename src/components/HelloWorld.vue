@@ -65,7 +65,8 @@ export default defineComponent({
           path: "/Generatewatermark",
           icon: "BorderTopOutlined"
         },
-        { name: "可编辑文字", path: "/Editabletext", icon: "EditOutlined" }
+        { name: "可编辑文字", path: "/Editabletext", icon: "EditOutlined" },
+        { name: "锁屏", path: "/Lockscreen", icon: "LockOutlined" }
       ]
     });
     return {

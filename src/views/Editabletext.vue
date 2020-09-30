@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <editable :msg="name"></editable>
+  </div>
 </template>
 
 <script lang='ts'>
@@ -12,7 +14,7 @@ export default defineComponent({
   props: {},
   components: {},
   setup(props, ctx: SetupContext) {
-    const data: Data = reactive<Data>({ name: "" });
+    const data: Data = reactive<Data>({ name: "Jack" });
     return {
       ...toRefs(data)
     };

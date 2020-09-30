@@ -119,7 +119,23 @@ const routes: Array<RouteRecordRaw> = [
           title: "可编辑文字",
         },
       },
+      {
+        path: "/Lockscreen",
+        name: "Lockscreen",
+        component: () => import("../views/Lockscreen.vue"),
+        meta: {
+          title: "锁屏",
+        },
+      },
     ],
+  },
+  {
+    path: "/lock",
+    name: "lock",
+    component: () => import("../views/lock.vue"),
+    meta: {
+      title: "锁屏显示",
+    },
   },
 ];
 
@@ -139,9 +155,14 @@ router.beforeEach(
     from: RouteLocationNormalized,
     next: NavigationGuardNext
   ) => {
-    document.title = to.meta.title;
     console.log(from);
-    next();
+    document.title = to.meta.title;
+    const password = localStorage.getItem("pwd");
+    if (to.path === "/lock") {
+      next();
+    } else {
+      password ? next("/lock") : next();
+    }
   }
 );
 

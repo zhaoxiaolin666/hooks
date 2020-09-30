@@ -20,8 +20,8 @@ interface Name {
 interface Data {
   name?: Name[];
   nametwo?: Name[];
-  nameThree?: Name[];
-  shut: boolean;
+  nameThree?: Name[]; //图片
+  shut: boolean; //是否关闭遮罩层
 }
 export default defineComponent({
   name: "",
